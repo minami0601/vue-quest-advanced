@@ -43,9 +43,9 @@ export default {
         return {};
     },
     methods: {
-        switchSidebar() {
-        const isOpenSidebar = this.$store.state.isOpenSidebar;
-        this.$store.dispatch("switchSideBar", !isOpenSidebar);
+        switchSideBar() {
+        const isOpenSideBar = this.$store.state.isOpenSideBar;
+        this.$store.dispatch("switchSideBar", !isOpenSideBar);
         }
     },
 };
