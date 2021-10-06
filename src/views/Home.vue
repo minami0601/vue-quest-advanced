@@ -1,15 +1,15 @@
 <template>
-  <hello-world />
+  <div>
+    <hello-world />
+    <!-- /event/1に遷移 -->
+    <router-link to="/event/1">イベント1</router-link>
+    <img alt="Vue logo" src="../assets/logo.png" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld";
-
 export default {
   name: "Home",
-
-  components: {
-    HelloWorld,
-  },
+  components: {}
 };
 </script>
