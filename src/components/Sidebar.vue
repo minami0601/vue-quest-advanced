@@ -12,11 +12,11 @@
         <!-- https://vuetifyjs.com/ja/components/list-item-groups/ -->
         <v-list-item-group color="primary">
             <v-list rounded>
-            <v-list-item>
+            <v-list-item @click="switchCreateTaskDialog(true)">
                 <v-list-item-content>
                 <v-list-item-title>
                     <v-icon>mdi-plus</v-icon>
-                    アイテムボタン</v-list-item-title
+                    タスクを追加</v-list-item-title
                 >
                 </v-list-item-content>
             </v-list-item>
@@ -53,6 +53,11 @@ export default {
             get() {
                 return this.$store.state.event.events;
             }
+        }
+    },
+    methods: {
+        switchCreateTaskDialog(value) {
+            this.$store.dispatch("switchCreateTaskDialog", value);
         }
     }
 }
