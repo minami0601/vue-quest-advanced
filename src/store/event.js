@@ -7,7 +7,7 @@ export const event = {
                 start: "2021-10-21",
                 end: "2021-10-21",
                 color: "blue",
-                detail: "",
+                detail: "詳細です詳細です",
                 timed: false
             },
             {
@@ -16,10 +16,15 @@ export const event = {
                 start: "2021-10-07",
                 end: "2021-10-10",
                 color: "green",
-                detail: "",
+                detail: "詳細です詳細です",
                 timed: false
             }
         ]
+    },
+    getters: {
+        event: state => eventNo => {
+            return state.events.find(value => value.eventNo == eventNo);
+        }
     },
     mutations: {
         updateEvents(state, value) {
