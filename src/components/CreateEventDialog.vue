@@ -175,7 +175,6 @@ export default {
 		},
 		createEvent() {
 			const payload = {
-				eventNo: this.$store.state.event.events.length + 1,
 				name: this.eventName,
 				start: this.startDate,
 				end: this.endDate,
