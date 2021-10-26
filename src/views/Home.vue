@@ -52,6 +52,9 @@ export default {
       value: "",
     };
   },
+  async created() {
+    this.$store.dispatch("event/getEventAll");
+  },
   computed: {
     events: {
       get() {
@@ -64,7 +67,7 @@ export default {
       this.$store.dispatch("switchCreateEventDialog", value);
     },
     toEventPage(value) {
-      this.$router.push(`/event/${value.event.eventNo}`);
+      this.$router.push(`/event/${value.event.id}`);
     },
   },
 };
