@@ -7,3 +7,8 @@ export const getEventAll = () => {
     const response = axios.get(`${backendURL}/events`);
     return response;
 };
+
+export const getEvent = id => {
+    const response = axios.get(`${backendURL}/events/${id}`);
+    return response;
+};
