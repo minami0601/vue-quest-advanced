@@ -17,3 +17,8 @@ export const createEvent = data => {
     const response = axios.post(`${backendURL}/events`, data);
     return response;
 }
+
+export const deleteEvent = id => {
+    const response = axios.put(`${backendURL}/events/${id}/delete`);
+    return response;
+}
