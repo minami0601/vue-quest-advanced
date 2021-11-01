@@ -12,3 +12,8 @@ export const getEvent = id => {
     const response = axios.get(`${backendURL}/events/${id}`);
     return response;
 };
+
+export const createEvent = data => {
+    const response = axios.post(`${backendURL}/events`, data);
+    return response;
+}
