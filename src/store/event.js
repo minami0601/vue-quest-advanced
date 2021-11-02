@@ -1,4 +1,4 @@
-import { getEventAll, getEvent, createEvent, deleteEvent } from "@/service/event";
+import { getEventAll, getEvent, createEvent, deleteEvent, updateEvent } from "@/service/event";
 
 export const event = {
     namespaced: true,
@@ -20,9 +20,17 @@ export const event = {
         updateIsLoading(state, value) {
             state.isLoading = value;
         },
+        updateEventsEvent(state, value) {
+            const event = state.events.find(v => v.id == value.id);
+            event.name = value.name;
+            event.color = value.color;
+            event.end = value.end;
+            event.start = value.start;
+            event.detail = value.detail;
+        }
     },
     actions: {
-         // イベント一覧取得
+        // イベント一覧取得
         async getEventAll({ commit }) {
             try {
                 commit("updateIsLoading", true);
@@ -64,6 +72,20 @@ export const event = {
                 commit("updateIsLoading", true);
                 await deleteEvent(payload);
                 commit("updateEvent", {});
+            } catch (error) {
+                alert("エラーが発生しました");
+                console.log(error);
+            } finally {
+                commit("updateIsLoading", false);
+            }
+        },
+        async editEvent({ commit }, payload) {
+            try {
+                commit("updateIsLoading", true);
+                const response = await updateEvent(payload.id, payload.eventData);
+                commit("updateEvent", response.data);
+                commit("updateEventsEvent", response.data);
+                alert("イベントを編集しました！");
             } catch (error) {
                 alert("エラーが発生しました");
                 console.log(error);
