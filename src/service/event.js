@@ -22,3 +22,7 @@ export const deleteEvent = id => {
     const response = axios.put(`${backendURL}/events/${id}/delete`);
     return response;
 }
+export const updateEvent = (id, data) => {
+    const response = axios.put(`${backendURL}/events/${id}`, data);
+    return response;
+};
